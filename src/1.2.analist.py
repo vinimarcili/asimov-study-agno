@@ -8,7 +8,8 @@ model = Groq(id='llama-3.3-70b-versatile')
 
 agent = Agent(
   tools=[YFinanceTools()],
-  model=model
+  model=model,
+  instructions="Use tabelas para mostrar a informação final, não inclua nenhum outro texto",
 )
 
-agent.print_response("Cotação atual da Magazine Luiza e previsão para os próximos dias.")
+agent.print_response("Cotação atual da Magazine Luiza e previsão para os próximos dias.", stream=True)
