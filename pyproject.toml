@@ -8,4 +8,6 @@ dependencies = [
     "agno>=2.2.13",
     "groq>=0.34.1",
     "python-dotenv>=1.2.1",
+    "tavily-python>=0.7.13",
+    "yfinance>=0.2.66",
 ]
