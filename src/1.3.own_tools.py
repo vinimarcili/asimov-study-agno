@@ -1,6 +1,6 @@
 from agno.agent import Agent
 from agno.tools.tavily import TavilyTools
-from agno.models.groq import Groq
+from agno.models.openai import OpenAIChat
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -29,7 +29,7 @@ def fahrenheit_to_celsius(fahrenheit: float) -> float:
   return (fahrenheit - 32) * 5/9
 
 
-model = Groq(id='llama-3.3-70b-versatile')
+model = OpenAIChat(id='gpt-5-nano')
 
 agent = Agent(
   tools=[TavilyTools(), celsius_to_fahrenheit, fahrenheit_to_celsius],
@@ -37,4 +37,4 @@ agent = Agent(
   debug_mode=True
 )
 
-agent.print_response("Use sua ferramentas para pesquisar sobre temperatura em São Paulo amanhã. Mostre em Celsius e Fahrenheit.", stream=True)
+agent.print_response("Use sua ferramentas para pesquisar sobre temperatura em São Paulo amanhã. Mostre em Celsius e Fahrenheit. Responda somente com uma tabela e os resultados", stream=True)
